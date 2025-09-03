@@ -36,12 +36,17 @@ The system demonstrates distributed synchronization using **scalar** and **vecto
 
 1. Prerequisites:
 	- **Java 21**
+	- **Docker & Docker Compose**
 2. Clone and build the project:
 	```bash
-	git clone git@github.com/Vjekoslav-Radosevic/Peer-to-Peer-Sensor-System-with-Logical-Clocks.git
+	git clone https://github.com/Vjekoslav-Radosevic/Peer-to-Peer-Sensor-System-with-Logical-Clocks.git
 	cd Peer-to-Peer-Sensor-System-with-Logical-Clocks
-	./gradlew build
+	gradlew build
 	```
+3. Run Docker Compose file to start Kafka broker with Raft:
+   ```bash
+   docker compose up
+   ```
 
 ---
 
@@ -49,10 +54,10 @@ The system demonstrates distributed synchronization using **scalar** and **vecto
 
 1. **Start the sensor node with:**
 	```bash
-	./gradlew runSensorNode --args="<sensor_port>"
+	gradlew runSensorNode --args="<sensor_port>"
 	```
 
 2. **Start the control node with:**
    ```bash
-   ./gradlew runControlNode
+   gradlew runControlNode
    ```
