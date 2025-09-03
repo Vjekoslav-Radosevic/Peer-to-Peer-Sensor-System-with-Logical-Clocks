@@ -1,0 +1,34 @@
+plugins {
+	id 'java'
+}
+
+group = 'hr.fer'
+version = '1.0.0'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.apache.kafka:kafka-clients:4.1.0'
+	implementation 'org.slf4j:slf4j-api:2.0.17'
+	implementation 'ch.qos.logback:logback-classic:1.5.18'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.20.0'
+	implementation 'org.apache.commons:commons-lang3:3.18.0'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+tasks.register('runSensorNode', JavaExec) {
+	mainClass = 'hr.fer.App'
+	classpath = sourceSets.main.runtimeClasspath
+	standardInput = System.in
+}
+
+tasks.register('runControlNode', JavaExec) {
+	mainClass = 'hr.fer.ControlNode'
+	classpath = sourceSets.main.runtimeClasspath
+	standardInput = System.in
+}
